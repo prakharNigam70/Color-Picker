@@ -56,5 +56,60 @@ export const colorBoxStyles = makeStyles({
         color : "white",
         background : "rgba(255,255,255,.3)",
         textAlign : "center"
+    },
+
+    CopyOverlay : {
+        opacity : 0,
+        zIndex : 0,
+        height : "100%",
+        width : "100%",
+        transform : "scale(0.1)"
+    },
+
+    CopyOverlayShow : {
+        opacity : 1,
+        zIndex  : 10,
+        transform : "scale(50)",
+        position : "absolute",
+        transition : "transform 0.6s ease-in-out"
+    },
+
+    CopyMsg : {
+        position : "fixed",
+        top : 0,
+        bottom : 0,
+        right : 0,
+        left : 0,
+        display: "flex",
+        flexDirection : "column",
+        alignItems : "center",
+        justifyContent : "center",
+        opacity : 0,
+        fontSize : "3rem",
+        transform : "scale(0.1)"
+    },
+
+    CopyMsgShow : {
+        opacity : 1,
+        zIndex : 20,
+        transform : "scale(1)",
+        transition : "all .4s ease-in",
+        transitionDelay : "0.3s",
+        color : "white"
+    },
+
+    CopyMsgh1:{
+        fontWeight : 400,
+        background : "rgba(255,255,255,.2)",
+        width : "100%",
+        textShadow : "1px 2px black",
+        textAlign : "center",
+        marginBottom : 0,
+        padding : ".2rem"
+    },
+
+    CopyMsgp : {
+        fontSize : "1rem",
+        fontWeight : 100
     }
 })
