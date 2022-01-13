@@ -1,5 +1,12 @@
+import { createMuiTheme, createTheme, MuiThemeProvider, Slider, Theme, ThemeProvider } from "@material-ui/core";
+import { ChangeEvent, SetStateAction, useState } from "react";
 import ColorBox from "./ColorBox"
+import { INewColor } from "./colorHelper";
 import { palleteStyles } from "./styles/Pallete";
+// import type {} from '@material-ui/lab';
+import type {} from '@mui/lab/themeAugmentation'
+import Navbar from "./Navbar";
+
 
 interface IColor{
     name: string,
@@ -7,21 +14,31 @@ interface IColor{
 }
 
 interface IProps{
+    pallete : INewPallete
+}
+
+interface INewPallete{
     paletteName: string,
     id : string,
     emoji : string,
-    colors : IColor[]
+    colors : {
+        [key : number] : INewColor[]
+    }
 }
+
 
 export default function Pallete(props : IProps){
     const styles = palleteStyles();
+    const [level, setLevel] = useState(500)
 
-    const {paletteName,colors} = props
-    const colorBoxes = colors.map(color => <ColorBox background={color.color} name={color.name}/> )
+
+    const {pallete} = props;
+    const {paletteName,colors} = pallete;
+    const colorBoxes = colors[level].map(color => <ColorBox background={color.hex} name={color.name}/> )
     return(
         <div className={styles.Pallete}>
-            {/* <h1>{paletteName}</h1> */}
             {/* Navbar here */}
+            <Navbar level={{level, setLevel}}/>
             <div className={styles.PalleteColors}>
                 {colorBoxes}
                 {/* <ColorBox background="red" name="Red"/> */}
@@ -29,4 +46,8 @@ export default function Pallete(props : IProps){
             {/* footer */}
         </div>
     )
+}
+
+function getMuiTheme(arg0: { slider: { trackColor: string; selectionColor: string; }; }) {
+    throw new Error("Function not implemented.");
 }

@@ -8,5 +8,15 @@ export const palleteStyles = makeStyles({
     },
     PalleteColors:{
         height : "90%"
+    },
+    Slider : {
+        borderRadius : "5px",
+        color : "green",
+    },
+    SliderContainer : {
+        background : "white",
+        padding : '8px 25px'
     }
+    
 })
+

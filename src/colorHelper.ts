@@ -4,7 +4,7 @@ interface IColor{
     name: string,
     color: string
 }
-interface INewColor{
+export interface INewColor{
     name: string,
     id : string,
     hex : string,

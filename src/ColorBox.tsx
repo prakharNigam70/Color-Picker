@@ -16,7 +16,7 @@ export default function ColorBox(props : IProps){
     const {background, name} = props;
     const [copied, setCopied] = useState<IState>();
 
-    useLayoutEffect( ()=>{
+    useEffect( ()=>{
         setTimeout(()=>{
             setCopied({copied : false});
         } , 1500)
